@@ -47,7 +47,7 @@ function cleanupEffect(effect) {
   effect.length = 0;
 }
 
-class Dep {
+export class Dep {
   private subscribe = new Set();
 
   depend() {

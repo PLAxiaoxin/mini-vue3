@@ -1,8 +1,5 @@
 # mini-vue3
 
-- ❌ 未完成
-- ✅ 已完成
-
 ## **reactivity**
 
 1. ✅ setup 环境-集成 jest 做单元测试-集成 ts
@@ -25,9 +22,9 @@
 
 10. ✅ 实现 shallowReadonly 功能
 
-11. ❌ 实现 isProxy 功能
+11. ✅ 实现 isProxy 功能
 
-12. ❌ 实现 ref 功能
+12. ✅ 实现 ref 功能
 
 13. ❌ 实现 isRef 和 unRef 功能
 
