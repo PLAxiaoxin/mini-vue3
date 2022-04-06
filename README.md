@@ -23,7 +23,7 @@
 
 9. ✅ 实现 reactive 和 readonly 嵌套对象转换功能
 
-10. ❌ 实现 shallowReadonly 功能
+10. ✅ 实现 shallowReadonly 功能
 
 11. ❌ 实现 isProxy 功能
 

@@ -1,13 +1,14 @@
 import { getDep } from "./effect";
 import { ReactiveFlags, reactive, readonly } from "./reactive";
-import { isObject } from "../shared";
+import { isObject, extend } from "../shared";
 
 // 缓存第一次创建的
 const get = createGetter();
 const set = createSetter();
 const readonlyGet = createGetter(true);
+const shallowReadonlyGet = createGetter(true, true);
 
-function createGetter(isReadonly = false) {
+function createGetter(isReadonly = false, shallowReadonly = false) {
   return function get(target, key) {
     const res = Reflect.get(target, key);
 
@@ -16,6 +17,10 @@ function createGetter(isReadonly = false) {
       return !isReadonly;
     } else if (key === ReactiveFlags.IS_READONLY) {
       return isReadonly;
+    }
+
+    if (shallowReadonly) {
+      return res;
     }
 
     // 检查res 是不是一个对象
@@ -55,3 +60,7 @@ export const readonlyHandlers = {
     return true;
   }
 };
+
+export const shallowReadonlyHandlers = extend({}, readonlyHandlers, {
+  get: shallowReadonlyGet
+});
