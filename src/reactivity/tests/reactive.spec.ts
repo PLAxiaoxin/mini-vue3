@@ -6,7 +6,18 @@ describe("reactive", () => {
     const observed = reactive(original);
     expect(observed).not.toBe(original);
     expect(observed.foo).toBe(1);
-    // expect(isReactive(observed)).toBe(true);
+    expect(isReactive(observed)).toBe(true);
     expect(isReactive(original)).toBe(false);
+  });
+
+  it("reactive 深层次遍历", () => {
+    const obj = reactive({
+      baz: { a: 1 },
+      arr: [{ b: 1 }]
+    });
+
+    expect(isReactive(obj.baz)).toBe(true);
+    expect(isReactive(obj.arr)).toBe(true);
+    expect(isReactive(obj.arr[0])).toBe(true);
   });
 });

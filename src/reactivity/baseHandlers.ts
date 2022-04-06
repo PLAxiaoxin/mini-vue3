@@ -1,5 +1,6 @@
 import { getDep } from "./effect";
-import { ReactiveFlags } from "./reactive";
+import { ReactiveFlags, reactive, readonly } from "./reactive";
+import { isObject } from "../shared";
 
 // 缓存第一次创建的
 const get = createGetter();
@@ -15,6 +16,11 @@ function createGetter(isReadonly = false) {
       return !isReadonly;
     } else if (key === ReactiveFlags.IS_READONLY) {
       return isReadonly;
+    }
+
+    // 检查res 是不是一个对象
+    if (isObject(res)) {
+      return isReadonly ? readonly(res) : reactive(res);
     }
 
     if (!isReadonly) {

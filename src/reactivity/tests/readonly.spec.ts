@@ -16,4 +16,11 @@ describe("readonly", () => {
     user.age = 2;
     expect(console.warn).toBeCalled();
   });
+
+  it("Readonly 深层遍历", () => {
+    const obj = { foo: 1, baz: { c: 2 } };
+    const wrapped = readonly(obj);
+    expect(isReadonly(wrapped.baz)).toBe(true);
+    expect(isReadonly(obj.baz)).toBe(false);
+  });
 });
