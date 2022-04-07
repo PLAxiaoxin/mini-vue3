@@ -1,4 +1,4 @@
-import { ref, isRef, unRef } from "../ref";
+import { ref, isRef, unRef, proxyRefs } from "../ref";
 import { effect } from "../effect";
 import { reactive } from "../reactive";
 
@@ -58,5 +58,22 @@ describe("ref", () => {
     const b = reactive({ a: 1 });
     expect(unRef(a)).toBe(1);
     expect(unRef(1)).toBe(1);
+  });
+
+  it("proxyRefs", () => {
+    const user = {
+      a: ref(1),
+      name: "zhangsan"
+    };
+
+    let proxyUser = proxyRefs(user);
+    expect(user.a.value).toBe(1);
+    expect(proxyUser.a).toBe(1);
+    expect(proxyUser.name).toBe("zhangsan");
+
+    // 改变代理对象的值会影响原对象
+    proxyUser.a = 20;
+    expect(proxyUser.a).toBe(20);
+    expect(user.a.value).toBe(20);
   });
 });
