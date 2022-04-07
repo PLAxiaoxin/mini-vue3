@@ -5,7 +5,8 @@ import { reactive } from "./reactive";
 class Refimpl {
   private _value: any;
   public dep;
-  private _rawValue;
+  private _rawValue: any;
+  public __v_isRef = true;
   constructor(value) {
     this._rawValue = value;
     this._value = covert(value);
@@ -33,4 +34,12 @@ function covert(value) {
 
 export function ref(value) {
   return new Refimpl(value);
+}
+
+export function isRef(ref) {
+  return !!ref.__v_isRef;
+}
+
+export function unRef(ref) {
+  return isRef(ref) ? ref.value : ref;
 }

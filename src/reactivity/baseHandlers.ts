@@ -19,15 +19,17 @@ function createGetter(isReadonly = false, shallowReadonly = false) {
       return isReadonly;
     }
 
+    // 只处理最外层的对象
     if (shallowReadonly) {
       return res;
     }
 
-    // 检查res 是不是一个对象
+    // 对象嵌套转换
     if (isObject(res)) {
       return isReadonly ? readonly(res) : reactive(res);
     }
 
+    // 是reactive 才进行收集
     if (!isReadonly) {
       // TODO  收集依赖
       const dep = getDep(target, key);

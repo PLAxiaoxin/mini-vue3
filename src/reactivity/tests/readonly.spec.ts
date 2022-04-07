@@ -18,7 +18,7 @@ describe("readonly", () => {
     expect(console.warn).toBeCalled();
   });
 
-  it("Readonly 深层遍历", () => {
+  it("Readonly 嵌套对象转换", () => {
     const obj = { foo: 1, baz: { c: 2 } };
     const wrapped = readonly(obj);
     expect(isReadonly(wrapped.baz)).toBe(true);

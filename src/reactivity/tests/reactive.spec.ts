@@ -11,7 +11,7 @@ describe("reactive", () => {
     expect(isProxy(observed)).toBe(true);
   });
 
-  it("reactive 深层次遍历", () => {
+  it("reactive 嵌套对象转换", () => {
     const obj = reactive({
       baz: { a: 1 },
       arr: [{ b: 1 }]
