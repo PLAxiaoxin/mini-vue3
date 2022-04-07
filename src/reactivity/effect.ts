@@ -4,7 +4,7 @@ let activeEffect: any = null; // 存储当前的effect
 let targetMap = new Map(); // 依赖存储
 let shouldTrack: boolean = false; // 判断是否要收集yilai
 
-class Reactive {
+export class ReactiveEffect {
   private _fn: any;
   public scheduler: Function | undefined;
   onStop?: () => void;
@@ -83,7 +83,7 @@ export function getDep(target, key) {
 }
 
 export function effect(fn, options: any = {}) {
-  const _effect = new Reactive(fn, options.scheduler);
+  const _effect = new ReactiveEffect(fn, options.scheduler);
   extend(_effect, options);
   _effect.run();
   const runner = _effect.run.bind(_effect);

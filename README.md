@@ -30,7 +30,7 @@
 
 14. ✅ 实现 proxyRefs 功能
 
-15. ❌ 实现 computed 计算属性功能
+15. ✅ 实现 computed 计算属性功能
 
 ## **runtime-core 初始化**
 
