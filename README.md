@@ -34,7 +34,7 @@
 
 ## **runtime-core 初始化**
 
-1. ❌ 实现初始化 component 主流程
+1. ✅ 实现初始化 component 主流程
 
 2. ❌ 使用 rollup 打包库
 
