@@ -36,7 +36,7 @@
 
 1. ✅ 实现初始化 component 主流程
 
-2. ❌ 使用 rollup 打包库
+2. ✅ 使用 rollup 打包库
 
 3. ❌ 实现初始化 element 主流程
 

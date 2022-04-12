@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2022-04-10 16:24:49
- * @LastEditTime: 2022-04-10 16:41:03
- * @LastEditors: Please set LastEditors
- * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: /mini-vue3/src/runtime-core/component.ts
- */
  export function createComponentInstance(vnode){
    const component = {
      vnode,
@@ -49,7 +41,7 @@
 
  function finishComponentSetup(instance){
    const Component = instance.type;
-   if(!Component.render){
+  //  if(Component.render){
      instance.render = Component.render;
-   }
+  //  }
  }
