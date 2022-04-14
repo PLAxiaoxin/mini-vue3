@@ -23,7 +23,7 @@ function processElement(vnode, container){
 
 function mountElement(vnode, container){
  // 创建节点，创建属性，挂载节点
- const el = document.createElement(vnode.type);
+ const el = (vnode.el = document.createElement(vnode.type));
  let { children } = vnode;
  if(typeof children === "string"){
   el.textContent = children;
@@ -56,12 +56,16 @@ function mountComponent(vnode,container){
   // 创建组件实例
   const instance = createComponentInstance(vnode);
   setupComponent(instance);
-  setupRenderEffect(instance,container);
+  setupRenderEffect(instance, vnode, container);
 }
 
-function setupRenderEffect(instance,container){
-  const subTree = instance.render();
+function setupRenderEffect(instance, vnode, container){
+  const { proxy } = instance; 
+  const subTree = instance.render.call(proxy);
   // vnode -> patch
   // vnode -> element -> mountElement
   patch(subTree, container)
+
+  // 这里可以确认element 都处理完成
+  vnode.el = subTree.el;
 }

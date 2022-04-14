@@ -1,18 +1,26 @@
 import { h } from "../../lib/guide-mini-vue.esm.js";
+
+window.self = null;
 export const App = {
   // render
   render(){
+    window.self = this;
     return h("div", {
       id: "id",
       class: [ "red", "hard"]
-    },[
-      h("p", {
-        class: "p1"
-      }, "hi p1"),
-      h("p", {
-        class: "p2"
-      },"hi p2")
-    ]);
+    },
+    // Array
+    // [
+    //   h("p", {
+    //     class: "p1"
+    //   }, "hi p1"),
+    //   h("p", {
+    //     class: "p2"
+    //   },"hi p2")
+    // ]
+    // string
+    "hi " + this.msg
+    );
   },
   setup(){
     // composition api
