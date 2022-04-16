@@ -13,7 +13,7 @@ export function createVNode(type, props?, children?){
     // vnode.shapeFlag = vnode.shapeFlag | ShapeFlags.TEXT_CHILDREN 这和下面的写法是一个意思
     vnode.shapeFlag |= ShapeFlags.TEXT_CHILDREN;
   } else if(Array.isArray(vnode.children)){
-    vnode.shapeFlag |- ShapeFlags.ARRAY_CHILDREN;
+    vnode.shapeFlag |= ShapeFlags.ARRAY_CHILDREN;
   }
   return vnode;
 }

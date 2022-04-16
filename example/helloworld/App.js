@@ -1,19 +1,21 @@
 import { h } from "../../lib/guide-mini-vue.esm.js";
+import { Foo } from "./Foo.js";
 
 window.self = null;
 export const App = {
+  name: "app",
   // render
   render(){
     window.self = this;
     return h("div", {
       id: "id",
       class: [ "red", "hard"],
-      onClick(){
-        console.log("click");
-      },
-      onMousedown(){
-        console.log("mousedown");
-      }
+      // onClick(){
+      //   console.log("click");
+      // },
+      // onMousedown(){
+      //   console.log("mousedown");
+      // }
     },
     // Array
     // [
@@ -25,7 +27,9 @@ export const App = {
     //   },"hi p2")
     // ]
     // string
-    "hi " + this.msg
+    // "hi " + this.msg
+    // [h("div", {}, "hi " + this.msg)]
+    [h(Foo,{count: 1})]
     );
   },
   setup(){
