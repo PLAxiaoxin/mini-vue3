@@ -1,5 +1,4 @@
 import { ShapeFlags } from '../shared/ShapeFlags';
-import { isObject } from './../shared/index';
 import { createComponentInstance, setupComponent } from "./component";
 
 export function render(vnode, container){
@@ -37,7 +36,13 @@ function mountElement(vnode, container){
  
  for( const key in props){
    let val = props[key];
-   el.setAttribute(key, val);
+   const isOn = (key: string) => /^on[A-Z]/.test(key);
+   if(isOn(key)){
+    const event = key.slice(2).toLocaleLowerCase();
+    el.addEventListener(event, val);
+   } else {
+    el.setAttribute(key, val);
+   }
  }
  container.append(el);
 }
