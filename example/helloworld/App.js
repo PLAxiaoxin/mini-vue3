@@ -29,7 +29,16 @@ export const App = {
     // string
     // "hi " + this.msg
     // [h("div", {}, "hi " + this.msg)]
-    [h(Foo,{count: 1})]
+    [h(Foo,{
+      onAdd(a,b){
+        console.log("onAdd", a, b);
+      },
+      // add-foo addFoo
+      onAddFoo(){
+        console.log("onAddFoo")
+      }
+    })]
+
     );
   },
   setup(){
