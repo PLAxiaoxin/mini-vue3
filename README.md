@@ -48,9 +48,9 @@
 
 7. ✅ 实现组件 props 功能
 
-8. ❌ 实现组件 emit 功能
+8. ✅ 实现组件 emit 功能
 
-9. ❌ 实现组件 slots 功能
+9. ✅ 实现组件 slots 功能
 
 10. ❌ 实现 Fragment 和 Text 类型节点
 

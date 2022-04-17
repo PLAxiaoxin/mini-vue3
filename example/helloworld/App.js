@@ -28,17 +28,7 @@ export const App = {
     // ]
     // string
     // "hi " + this.msg
-    // [h("div", {}, "hi " + this.msg)]
-    [h(Foo,{
-      onAdd(a,b){
-        console.log("onAdd", a, b);
-      },
-      // add-foo addFoo
-      onAddFoo(){
-        console.log("onAddFoo")
-      }
-    })]
-
+    [h("div", {}, "hi " + this.msg)]
     );
   },
   setup(){
