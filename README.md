@@ -52,7 +52,7 @@
 
 9. ✅ 实现组件 slots 功能
 
-10. ❌ 实现 Fragment 和 Text 类型节点
+10. ✅ 实现 Fragment 和 Text 类型节点
 
 11. ❌ 实现 getCurrentInstance
 
