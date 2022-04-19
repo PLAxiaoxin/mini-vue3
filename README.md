@@ -54,7 +54,7 @@
 
 10. ✅ 实现 Fragment 和 Text 类型节点
 
-11. ❌ 实现 getCurrentInstance
+11. ✅ 实现 getCurrentInstance
 
 12. ❌ 实现依赖注入功能（provide/inject）
 

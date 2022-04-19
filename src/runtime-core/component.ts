@@ -33,9 +33,11 @@ import { initSlots } from './componentSlot';
   const { setup } = Component;
 
   if(setup){
+    setCurrentInstance(instance);
     const setupResult = setup(shallowReadonly(instance.props),{
       emit: instance.emit
     });
+    setCurrentInstance(null);
     handleSetupResult(instance,setupResult);
   }
  }
@@ -58,4 +60,14 @@ import { initSlots } from './componentSlot';
   //  if(Component.render){
      instance.render = Component.render;
   //  }
+ }
+
+ let currentInstance = null;
+ export function getCurrentInstance(){
+  return currentInstance;
+ }
+
+
+ export function setCurrentInstance(instance){
+  currentInstance = instance;
  }

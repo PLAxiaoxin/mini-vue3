@@ -99,3 +99,4 @@ function setupRenderEffect(instance, vnode, container){
   // 这里可以确认element 都处理完成
   vnode.el = subTree.el;
 }
+// 
