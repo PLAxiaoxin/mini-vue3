@@ -56,7 +56,7 @@
 
 11. ✅ 实现 getCurrentInstance
 
-12. ❌ 实现依赖注入功能（provide/inject）
+12. ✅ 实现依赖注入功能（provide/inject）
 
 13. ❌ 实现自定义渲染器 custom renderer
 

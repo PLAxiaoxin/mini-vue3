@@ -4,7 +4,7 @@ export const Foo = {
   name: "foo",
   setup(){
     const instance = getCurrentInstance();
-    console.log("App", instance);
+    console.log("Foo", instance);
   },
   render(){
     return h("div",{}, "foo");
