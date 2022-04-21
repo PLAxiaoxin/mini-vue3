@@ -1,7 +1,7 @@
-import { render } from "./render";
 import { createVNode } from "./vnode";
 
-export function createApp(rootComponent:any){
+export function createAppAPI(render){
+  return function createApp(rootComponent:any){
     return {
       mount(rootContainer:any){ 
         // 先生产vnde
@@ -11,7 +11,9 @@ export function createApp(rootComponent:any){
         render(vnode, rootContainer); 
       }
     }
+  }
 }
+
 
 
 
