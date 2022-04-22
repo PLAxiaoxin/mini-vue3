@@ -1,4 +1,5 @@
 import { shallowReadonly } from '../reactivity/reactive';
+import { proxyRefs } from '../reactivity/ref';
 import { emit } from './componentEmit';
 import { initProps } from './componentProps';
 import { publicInstanceProxyHandlers } from './componentPublicInstance';
@@ -13,6 +14,8 @@ import { initSlots } from './componentSlot';
      slots:{},
      provides: parent ? parent.provides : {},
      parent,
+     isMounted: false,
+     subTree: {},
      emit: ()=>{}
    }
   //  以下写法儿，可以实现默认传参
@@ -51,7 +54,7 @@ import { initSlots } from './componentSlot';
   // Object 就把对象注入组件上下文
 
   if(typeof setupResult === "object"){
-    instance.setupState = setupResult;
+    instance.setupState = proxyRefs(setupResult);
   }
 
   finishComponentSetup(instance)

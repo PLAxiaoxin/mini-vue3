@@ -58,11 +58,11 @@
 
 12. ✅ 实现依赖注入功能（provide/inject）
 
-13. ❌ 实现自定义渲染器 custom renderer
+13. ✅ 实现自定义渲染器 custom renderer
 
 ## runtime-core 更新
 
-1. ❌ 更新 element 流程搭建
+1. ✅ 更新 element 流程搭建
 
 2. ❌ 更新 element 的 props
 
