@@ -64,7 +64,7 @@
 
 1. ✅ 更新 element 流程搭建
 
-2. ❌ 更新 element 的 props
+2. ✅ 更新 element 的 props
 
 3. ❌ 更新 element 的 children
 
