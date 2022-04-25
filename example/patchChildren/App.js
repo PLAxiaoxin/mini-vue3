@@ -18,9 +18,9 @@ export default {
 			// 老的是 Text, 新的的节点是 Text
 			// h(TextToText)
 			// 老的是 Text, 新的的节点是 Array
-			h(TextToArray)
+			// h(TextToArray)
 			// 老的是 Array, 新的的节点是 Array
-			// h(ArrayToArray)
+			h(ArrayToArray)
 		])
 	}
 }

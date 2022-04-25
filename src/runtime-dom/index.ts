@@ -17,8 +17,9 @@ function patchProp(el, key, prevVal, nextVal){
   }
 }
 
-function insert(el, parent){
-  parent.append(el);
+function insert(child, parent, anchor){
+  // anchro 为 null 同 parent.append(el);
+  parent.insertBefore(child, anchor || null);
 }
 
 function remove(child){
