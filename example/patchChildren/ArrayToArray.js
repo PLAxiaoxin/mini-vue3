@@ -54,33 +54,33 @@ import { h, ref } from "../../lib/guide-mini-vue.esm.js";
 // 右侧
 // (a b)
 // c (a b)
-const prevChildren = [
-	h("p", {key: "A"}, "A"),
-	h("p", {key: "B"}, "B")
-];
+// const prevChildren = [
+// 	h("p", {key: "A"}, "A"),
+// 	h("p", {key: "B"}, "B")
+// ];
 
-const nextChildren = [
-	h("p", {key: "D"}, "D"),
-	h("p", {key: "C"}, "C"),
-	h("p", {key: "A"}, "A"),
-	h("p", {key: "B"}, "B"),
-];
+// const nextChildren = [
+// 	h("p", {key: "D"}, "D"),
+// 	h("p", {key: "C"}, "C"),
+// 	h("p", {key: "A"}, "A"),
+// 	h("p", {key: "B"}, "B"),
+// ];
 
 // 4.老的比新的长
 // (a b) c d
 // (a b)
 // 左侧
-// const prevChildren = [
-// 	h("p", {key: "A"}, "A"),
-// 	h("p", {key: "B"}, "B"),
-// 	h("p", {key: "C"}, "C")
-// 	// h("p", {key: "D"}, "D")
-// ];
+const prevChildren = [
+	h("p", {key: "A"}, "A"),
+	h("p", {key: "B"}, "B"),
+	h("p", {key: "C"}, "C"),
+	h("p", {key: "D"}, "D")
+];
 
-// const nextChildren = [
-// 	h("p", {key: "A"}, "A"),
-// 	h("p", {key: "B"}, "B")
-// ];
+const nextChildren = [
+	h("p", {key: "A"}, "A"),
+	h("p", {key: "B"}, "B")
+];
 
 // 右侧
 // a (b c)

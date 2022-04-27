@@ -23,7 +23,7 @@ function insert(child, parent, anchor){
 }
 
 function remove(child){
-  const parent = child.parent;
+  const parent = child.parentNode;
   if(parent){
     parent.removeChild(child);
   }

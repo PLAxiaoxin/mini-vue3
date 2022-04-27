@@ -6,6 +6,7 @@ import { createAppAPI } from './createApp';
 import { Fragment, Text } from "./vnode"
 
 export function createRenderer(options){
+  console.log('createRenderer ------ 创建renderer渲染器对象')
   const { 
     createElement: hostCreateEleemnt, 
     patchProp: hostPatchProp, 
@@ -13,7 +14,9 @@ export function createRenderer(options){
     remove: hostRemove,
     setElementText: hostSetElementText
   } = options;
+
   function render(vnode, container){
+    console.log('render ----- 调用render,触发patch')
     // patch 
     patch(null,vnode, container, null, null);
   }
@@ -48,6 +51,7 @@ export function createRenderer(options){
   }
 
   function processFragment(n1, n2, container, parentComponent, anchor){
+    console.log('processFragment ------ 处理Fragment节点');
     mountChildren(n2.children, container, parentComponent, anchor)
   }
 
@@ -144,6 +148,7 @@ export function createRenderer(options){
         }
       }
     } else if(i > e2){
+      // 老的比新的长
       while(i <= e1){
         hostRemove(c1[i].el);
         // 这里取不到 parent 导致无法删除子节点
@@ -212,6 +217,7 @@ export function createRenderer(options){
 
 
   function processComponent(n1,n2, container, parentComponent,anchor){
+    console.log('processComponent ----- 处理组件类型节点')
     // 挂载组件
     mountComponent(n2, container, parentComponent,anchor);
   }
@@ -226,7 +232,7 @@ export function createRenderer(options){
   function setupRenderEffect(instance, vnode, container, anchor){
     effect(()=>{
       if(!instance.isMounted){
-        console.log("init");
+        console.log("init", instance);
         const { proxy } = instance; 
         const subTree = (instance.subTree = instance.render.call(proxy));
         // vnode -> patch

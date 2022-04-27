@@ -66,9 +66,9 @@
 
 2. ✅ 更新 element 的 props
 
-3. ❌ 更新 element 的 children
+3. ✅ 更新 element 的 children
 
-4. ❌ 更新 element 的 children - 双端对比 diff 算法（1）
+4. ✅ 更新 element 的 children - 双端对比 diff 算法（1）
 
 5. ❌ 更新 element 的 children - 双端对比 diff 算法 （2）
 
