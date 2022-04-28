@@ -70,7 +70,7 @@
 
 4. ✅ 更新 element 的 children - 双端对比 diff 算法（1）
 
-5. ❌ 更新 element 的 children - 双端对比 diff 算法 （2）
+5. ✅ 更新 element 的 children - 双端对比 diff 算法 （2）
 
 6. ❌ 更新 element 的 children - 双端对比 diff 算法 （3）
 

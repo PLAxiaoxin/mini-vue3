@@ -70,17 +70,17 @@ import { h, ref } from "../../lib/guide-mini-vue.esm.js";
 // (a b) c d
 // (a b)
 // 左侧
-const prevChildren = [
-	h("p", {key: "A"}, "A"),
-	h("p", {key: "B"}, "B"),
-	h("p", {key: "C"}, "C"),
-	h("p", {key: "D"}, "D")
-];
+// const prevChildren = [
+// 	h("p", {key: "A"}, "A"),
+// 	h("p", {key: "B"}, "B"),
+// 	h("p", {key: "C"}, "C"),
+// 	h("p", {key: "D"}, "D")
+// ];
 
-const nextChildren = [
-	h("p", {key: "A"}, "A"),
-	h("p", {key: "B"}, "B")
-];
+// const nextChildren = [
+// 	h("p", {key: "A"}, "A"),
+// 	h("p", {key: "B"}, "B")
+// ];
 
 // 右侧
 // a (b c)
@@ -95,6 +95,55 @@ const nextChildren = [
 // 	h("p", {key: "B"}, "B"),
 // 	h("p", {key: "C"}, "C")
 // ];
+
+// 5. 对比中间部分
+// 删除老的 （在老的存在，在新的不存在）
+// 5.1 
+// a b (c, d) f g
+// a b (e, c) f g 
+// D 节点在新的里面没有 - 需要删除
+// C 节点的 props 改变了，需要更新
+// const prevChildren = [
+// 	h("p", {key: "A"}, "A"),
+// 	h("p", {key: "B"}, "B"),
+// 	h("p", {key: "C", id: "c-prev"}, "C"),
+// 	h("p", {key: "D"}, "D"),
+// 	h("p", {key: "F"}, "F"),
+// 	h("p", {key: "G"}, "G"),
+// ];
+
+// const nextChildren = [
+// 	h("p", {key: "A"}, "A"),
+// 	h("p", {key: "B"}, "B"),
+// 	h("p", {key: "E"}, "E"),
+// 	h("p", {key: "C", id: "c-next"}, "C"),
+// 	h("p", {key: "F"}, "F"),
+// 	h("p", {key: "G"}, "G"),
+// ];
+
+// 5.1.1
+// a b (c, e, d) f g
+// a b (e, c) f g 
+// 中间部分，老的比新的多直接删除（优化删除逻辑）
+const prevChildren = [
+	h("p", {key: "A"}, "A"),
+	h("p", {key: "B"}, "B"),
+	h("p", {key: "C", id: "c-prev"}, "C"),
+	h("p", {key: "E"}, "E"),
+	h("p", {key: "D"}, "D"),
+	h("p", {key: "F"}, "F"),
+	h("p", {key: "G"}, "G"),
+];
+
+const nextChildren = [
+	h("p", {key: "A"}, "A"),
+	h("p", {key: "B"}, "B"),
+	h("p", {key: "E"}, "E"),
+	h("p", {key: "C", id: "c-next"}, "C"),
+	h("p", {key: "F"}, "F"),
+	h("p", {key: "G"}, "G"),
+];
+
 
 export default {
 	name: "ArrayToArray",
