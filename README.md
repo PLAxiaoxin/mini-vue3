@@ -72,7 +72,7 @@
 
 5. ✅ 更新 element 的 children - 双端对比 diff 算法 （2）
 
-6. ❌ 更新 element 的 children - 双端对比 diff 算法 （3）
+6. ✅ 更新 element 的 children - 双端对比 diff 算法 （3）
 
 7. ❌ 学习尤大解决 bug 的处理方式
 
