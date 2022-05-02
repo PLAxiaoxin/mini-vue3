@@ -78,7 +78,7 @@
 
 8. ✅ 实现组件更新功能
 
-9. ❌ 实现 nextTick 功能
+9. ✅ 实现 nextTick 功能
 
 ## compiler-core
 
