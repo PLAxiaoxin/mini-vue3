@@ -208,26 +208,41 @@ import { h, ref } from "../../lib/guide-mini-vue.esm.js";
 // 移动 c,d,E
 // 删除 z
 // 创建 y
+// const prevChildren = [
+// 	h("p", {key: "A"}, "A"),
+// 	h("p", {key: "B"}, "B"),
+// 	h("p", {key: "C"}, "C"),
+// 	h("p", {key: "D"}, "D"),
+// 	h("p", {key: "E"}, "E"),
+// 	h("p", {key: "Z"}, "Z"),
+// 	h("p", {key: "F"}, "F"),
+// 	h("p", {key: "G"}, "G"),
+// ];
+
+// const nextChildren = [
+// 	h("p", {key: "A"}, "A"),
+// 	h("p", {key: "B"}, "B"),
+// 	h("p", {key: "D"}, "D"),
+// 	h("p", {key: "C", id: "next-c"}, "C"),
+// 	h("p", {key: "Y"}, "Y"),
+// 	h("p", {key: "E"}, "E"),
+// 	h("p", {key: "F"}, "F"),
+// 	h("p", {key: "G"}, "G"),
+// ];
+
+// fix C 节点应该是移动，而不是删除之后重新创建
 const prevChildren = [
 	h("p", {key: "A"}, "A"),
+	h("p", {}, "C"),
 	h("p", {key: "B"}, "B"),
-	h("p", {key: "C"}, "C"),
 	h("p", {key: "D"}, "D"),
-	h("p", {key: "E"}, "E"),
-	h("p", {key: "Z"}, "Z"),
-	h("p", {key: "F"}, "F"),
-	h("p", {key: "G"}, "G"),
 ];
 
 const nextChildren = [
 	h("p", {key: "A"}, "A"),
 	h("p", {key: "B"}, "B"),
-	h("p", {key: "D"}, "D"),
-	h("p", {key: "C", id: "next-c"}, "C"),
-	h("p", {key: "Y"}, "Y"),
-	h("p", {key: "E"}, "E"),
-	h("p", {key: "F"}, "F"),
-	h("p", {key: "G"}, "G"),
+	h("p", {}, "C"),
+	h("p", {key: "D"}, "D")
 ];
 
 export default {
