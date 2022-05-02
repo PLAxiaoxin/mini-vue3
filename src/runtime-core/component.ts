@@ -11,6 +11,7 @@ import { initSlots } from './componentSlot';
      setupState: {},
      props: {},
      slots:{},
+     next: null,
      provides: parent ? parent.provides : {},
      parent,
      isMounted: false,
