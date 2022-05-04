@@ -22,8 +22,27 @@ function parseChildren(context){
 			node = parseElement(context);
 		}
 	}
+
+	if(!node){
+		node = parseText(context);
+	}
 	nodes.push(node);
 	return nodes;
+}
+
+function parseText(context){
+	// 1. 获取content
+	let content = parseTextData(context, context.source.length);
+	return {
+		type: NodeTypes.TEXT,
+		content
+	}
+}
+
+function parseTextData(context, length){
+	const content = context.source.slice(0, length);
+	advanceBy(context, length);
+	return content;
 }
 
 function parseElement(context){
@@ -58,7 +77,7 @@ function parseInterPolation(context){
 	
 	const rawContentLength = closeIndex - openDelimiter.length;
 	
-	const rawcontent = context.source.slice(0, rawContentLength);
+	const rawcontent = parseTextData(context, rawContentLength);
 	const content = rawcontent.trim();
 
 	advanceBy(context, rawContentLength + closeDelimiter.length);
