@@ -15,4 +15,15 @@ describe("Parse", ()=>{
 			});
 		})
 	})
+});
+
+describe("element", ()=>{
+	it("simple", ()=>{
+		const ast = baseParse("<div></div>");
+			// root
+			expect(ast.children[0]).toStrictEqual({
+				type: NodeTypes.ELEMENT,
+				tag: "div"
+			});
+	})
 })
