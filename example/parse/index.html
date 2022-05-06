@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>有限状态机的原理 -  实现正则检测 abc </title>
+</head>
+<body>
+	<script>
+		// 实现 /abc/.test("")
+		// 有限状态机 -> 读取一组输入然后根据这些输入来更改为不同状态
+
+		function test(str){
+			let startIndex;
+			let endIndex;
+			let i;
+			let result = [];
+
+			function waitFarA(char){
+				if(char === "a"){
+					startIndex = i;
+					return waitFarB;
+				}
+
+				return waitFarA;
+			}
+
+			function waitFarB(char){
+				if(char === "b"){
+					return waitFarC;
+				}
+
+				return waitFarA;
+			}
+
+			function waitFarC(char){
+				if(char === "c" || char === "d"){
+					endIndex = i;
+					return end;
+				}
+
+				return waitFarA;
+			}
+
+			function end(){
+				return end;
+			}
+
+			let currentStatus = waitFarA;
+
+			for( i = 0; i < str.length; i++){
+				let nextStatus = currentStatus(str[i]);	
+				currentStatus = nextStatus;
+				if(currentStatus === end){
+					console.log(startIndex, endIndex);
+					result.push({
+						start: startIndex,
+						end: endIndex
+					})
+					currentStatus = waitFarA;
+				}	
+			}
+
+			return result;
+		}
+		console.log(test("abd22abc"));
+	</script>
+</body>
+</html>
