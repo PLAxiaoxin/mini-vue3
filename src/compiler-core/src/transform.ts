@@ -13,7 +13,12 @@ export function transform(root,options = {}){
 }
 
 function createCodegenNode(root){
-	root.codegenNode = root.children[0];
+	const child = root.children[0];
+	if(child.type === NodeTypes.ELEMENT){
+		root.codegenNode = child.codegenNode;
+	} else {
+		root.codegenNode = root.children[0];
+	}
 }
 
 function createTransformContext(root, options){
@@ -31,9 +36,12 @@ function createTransformContext(root, options){
 
 function traverseNode(node: any, context){
 	const nodeTransforms = context.nodeTransforms;
+	// 进入的时候收集函数
+	const exitFns:any = [];
 	for(let i = 0; i < nodeTransforms.length; i++){
 		let tansform = nodeTransforms[i];
-		tansform(node);
+		const onExit = tansform(node, context);
+		if(onExit) exitFns.push(onExit);
 	}
 
 	switch (node.type) {
@@ -45,6 +53,12 @@ function traverseNode(node: any, context){
 			traverseChildren(node, context);
 		default:
 			break;
+	}
+
+	// 退出的时候，实行先进的先执行，后进的后执行
+	let i = exitFns.length;
+	while(i--){
+		exitFns[i]();
 	}
 }
 
