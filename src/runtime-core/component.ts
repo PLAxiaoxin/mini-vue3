@@ -62,10 +62,15 @@ import { initSlots } from './componentSlot';
 
 
  function finishComponentSetup(instance){
-   const Component = instance.type;
-  //  if(Component.render){
-     instance.render = Component.render;
-  //  }
+  const Component = instance.type;
+   if(compiler && !Component.render){
+      if(Component.template){
+        Component.render = compiler(Component.template);
+      }
+   }
+   
+   // template
+   instance.render = Component.render;
  }
 
  let currentInstance = null;
@@ -76,4 +81,9 @@ import { initSlots } from './componentSlot';
 
  export function setCurrentInstance(instance){
   currentInstance = instance;
+ }
+
+ let compiler;
+ export function registerRuntimeCompiler(_compiler){
+  compiler = _compiler;
  }
