@@ -131,9 +131,10 @@ function advanceBy(context: any, length: number){
 	context.source = context.source.slice(length)
 }
 
-function createRoot(children){
+function createRoot(children){	
 	return {
-		children
+		children,
+		type: NodeTypes.ROOT
 	}
 }
 
