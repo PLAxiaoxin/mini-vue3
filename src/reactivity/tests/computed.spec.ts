@@ -1,5 +1,6 @@
 import { reactive } from "../reactive";
 import { computed } from "../computed";
+import { vi } from "vitest";
 
 describe("computed", () => {
   it("happy path", () => {
@@ -13,7 +14,7 @@ describe("computed", () => {
 
   it("computed 懒执行", () => {
     const user = reactive({ age: 1 });
-    const getter = jest.fn(() => {
+    const getter = vi.fn(() => {
       return user.age;
     });
 

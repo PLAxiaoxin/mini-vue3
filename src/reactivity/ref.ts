@@ -1,8 +1,8 @@
-import { Dep } from "./effect";
-import { hasChanged, isObject } from "../shared";
-import { reactive } from "./reactive";
+import { Dep } from './effect';
+import { hasChanged, isObject } from '../shared';
+import { reactive } from './reactive';
 
-class Refimpl {
+class RefImpl {
   private _value: any;
   public dep;
   private _rawValue: any;
@@ -33,7 +33,7 @@ function covert(value) {
 }
 
 export function ref(value) {
-  return new Refimpl(value);
+  return new RefImpl(value);
 }
 
 export function isRef(ref) {
@@ -56,6 +56,6 @@ export function proxyRefs(objectWhitRef) {
       } else {
         return Reflect.set(target, key, value);
       }
-    }
+    },
   });
 }

@@ -1,8 +1,8 @@
-import { extend } from "../shared";
+import { extend } from '../shared';
 
 let activeEffect: any = null; // 存储当前的effect
 let targetMap = new Map(); // 依赖存储
-let shouldTrack: boolean = false; // 判断是否要收集yilai
+let shouldTrack: boolean = false; // 判断是否要收集依赖
 
 export class ReactiveEffect {
   private _fn: any;
@@ -98,5 +98,3 @@ export function stop(runner) {
 function isTracking() {
   return shouldTrack && activeEffect !== undefined;
 }
-
-

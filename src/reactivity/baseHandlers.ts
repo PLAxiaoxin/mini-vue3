@@ -1,14 +1,6 @@
-/*
- * @Author: your name
- * @Date: 2022-04-09 23:18:56
- * @LastEditTime: 2022-04-10 20:39:40
- * @LastEditors: Please set LastEditors
- * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: /mini-vue3/src/reactivity/baseHandlers.ts
- */
-import { getDep } from "./effect";
-import { ReactiveFlags, reactive, readonly } from "./reactive";
-import { isObject, extend } from "../shared";
+import { getDep } from './effect';
+import { ReactiveFlags, reactive, readonly } from './reactive';
+import { isObject, extend } from '../shared';
 
 // 缓存第一次创建的
 const get = createGetter();
@@ -58,9 +50,9 @@ function createSetter() {
   };
 }
 
-export const mutableHndlers = {
+export const mutableHandlers = {
   get,
-  set
+  set,
 };
 
 export const readonlyHandlers = {
@@ -68,9 +60,9 @@ export const readonlyHandlers = {
   set(target, key, value) {
     console.warn(`key ${key} 是 readonly 类型无法修改`);
     return true;
-  }
+  },
 };
 
 export const shallowReadonlyHandlers = extend({}, readonlyHandlers, {
-  get: shallowReadonlyGet
+  get: shallowReadonlyGet,
 });

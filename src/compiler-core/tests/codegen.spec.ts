@@ -29,7 +29,6 @@ describe("codegen", ()=>{
 		transform(ast,{
 			nodeTransforms: [transformExpression, transformElement, transformText]
 		});
-		console.log("ast--------", ast, ast.codegenNode.children);
 		const { code } = generate(ast);
 		// 快照测试 1. 抓bug 2. 更新快照	
 		expect(code).toMatchSnapshot();

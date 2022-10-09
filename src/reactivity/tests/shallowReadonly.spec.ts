@@ -1,5 +1,5 @@
 import { shallowReadonly, isReadonly } from "../reactive";
-
+import { vi } from "vitest"
 describe("shallowReadonly", () => {
   it("对象只有外层是只读", () => {
     const props = shallowReadonly({ n: { a: 1 } });
@@ -9,7 +9,7 @@ describe("shallowReadonly", () => {
 
   it("set 被调用", () => {
     const user = shallowReadonly({ age: 1 });
-    console.warn = jest.fn();
+    console.warn = vi.fn();
     user.age = 2;
     expect(console.warn).toBeCalled();
   });

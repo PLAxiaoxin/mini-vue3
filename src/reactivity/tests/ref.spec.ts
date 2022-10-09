@@ -1,14 +1,14 @@
-import { ref, isRef, unRef, proxyRefs } from "../ref";
-import { effect } from "../effect";
-import { reactive } from "../reactive";
+import { ref, isRef, unRef, proxyRefs } from '../ref';
+import { effect } from '../effect';
+import { reactive } from '../reactive';
 
-describe("ref", () => {
-  it("happy path", () => {
+describe('ref', () => {
+  it('happy path', () => {
     const foo = ref(1);
     expect(foo.value).toBe(1);
   });
 
-  it("响应式 以及 避免重复收集依赖", () => {
+  it('响应式 以及 避免重复收集依赖', () => {
     const a = ref(1);
     let duumy;
     let count = 0;
@@ -29,9 +29,9 @@ describe("ref", () => {
     expect(count).toBe(2);
   });
 
-  it("接收对象", () => {
+  it('接收对象', () => {
     const a = ref({
-      count: 1
+      count: 1,
     });
 
     let dummy;
@@ -45,7 +45,7 @@ describe("ref", () => {
     expect(dummy).toBe(2);
   });
 
-  it("isRef", () => {
+  it('isRef', () => {
     const a = ref(1);
     const b = reactive({ a: 1 });
     expect(isRef(a)).toBe(true);
@@ -53,23 +53,23 @@ describe("ref", () => {
     expect(isRef(b)).toBe(false);
   });
 
-  it("unRef", () => {
+  it('unRef', () => {
     const a = ref(1);
     const b = reactive({ a: 1 });
     expect(unRef(a)).toBe(1);
-    expect(unRef(1)).toBe(1);
+    expect(unRef(b.a)).toBe(1);
   });
 
-  it("proxyRefs", () => {
+  it('proxyRefs', () => {
     const user = {
       a: ref(1),
-      name: "zhangsan"
+      name: 'zhangsan',
     };
 
     let proxyUser = proxyRefs(user);
     expect(user.a.value).toBe(1);
     expect(proxyUser.a).toBe(1);
-    expect(proxyUser.name).toBe("zhangsan");
+    expect(proxyUser.name).toBe('zhangsan');
 
     // 改变代理对象的值会影响原对象
     proxyUser.a = 20;

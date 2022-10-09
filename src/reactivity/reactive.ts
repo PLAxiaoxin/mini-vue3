@@ -1,17 +1,16 @@
-import { isObject } from "../shared/index";
 import {
-  mutableHndlers,
+  mutableHandlers,
   readonlyHandlers,
-  shallowReadonlyHandlers
-} from "./baseHandlers";
+  shallowReadonlyHandlers,
+} from './baseHandlers';
 
 export const enum ReactiveFlags {
-  IS_REACTIVE = "__v_isReactive",
-  IS_READONLY = "__v_isReadonly"
+  IS_REACTIVE = '__v_isReactive',
+  IS_READONLY = '__v_isReadonly',
 }
 
 export function reactive(raw) {
-  return createActiveObject(raw, mutableHndlers);
+  return createActiveObject(raw, mutableHandlers);
 }
 
 export function shallowReadonly(raw) {
@@ -35,10 +34,6 @@ export function isProxy(value) {
   return isReactive(value) || isReadonly(value);
 }
 
-function createActiveObject(raw: any, baseHandlrs) {
-  
-  // if(!isObject(raw)){
-  //   return raw;
-  // }
-  return new Proxy(raw, baseHandlrs);
+function createActiveObject(raw: any, baseHandlers) {
+  return new Proxy(raw, baseHandlers);
 }
