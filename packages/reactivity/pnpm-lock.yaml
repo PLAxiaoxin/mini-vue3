@@ -1,0 +1,6 @@
+lockfileVersion: '6.0'
+
+dependencies:
+  '@guide-mini-vue/shared':
+    specifier: workspace:^
+    version: link:../shared

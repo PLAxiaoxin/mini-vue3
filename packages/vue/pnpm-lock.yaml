@@ -1,0 +1,9 @@
+lockfileVersion: '6.0'
+
+dependencies:
+  '@guide-mini-vue/compiler-core':
+    specifier: workspace:^
+    version: link:../compiler-core
+  '@guide-mini-vue/runtime-dom':
+    specifier: workspace:^
+    version: link:../runtime-dom

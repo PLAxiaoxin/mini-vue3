@@ -102,4 +102,6 @@
 
 10. ✅ 实现代码生成三种联合类型
 
-11. ✅ 实现编译 template 成 render 函数（大结局）
+11. ✅ 实现编译 template 成 render 函数
+
+12. ✅ 实现 monorepo

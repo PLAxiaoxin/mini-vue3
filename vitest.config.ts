@@ -1,16 +1,16 @@
-import { defineConfig } from "vitest/config"
-import path  from "path";
+import { defineConfig } from 'vitest/config';
+import path from 'path';
 
 export default defineConfig({
   test: {
-    globals: true
+    globals: true,
   },
   resolve: {
-    alias:[
+    alias: [
       {
-        find: /@mini-vue3\/([\w-]*)/,
-        replacement: path.resolve(__dirname, "src") + "/$1/src"
-      }
-    ]
-  }
-})
+        find: /@guide-mini-vue\/(\w*)/,
+        replacement: path.resolve(__dirname, 'packages') + '/$1/src',
+      },
+    ],
+  },
+});
